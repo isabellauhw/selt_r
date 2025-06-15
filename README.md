@@ -1,5 +1,5 @@
 # SELT-R: Social Evaluation Learning Task – Revised
-This repository contains the implementation of the SELT-R (Social Evaluation Learning Task – Revised; Lau et al., 2024), a modified version of the original SELT task introduced in Button et al. (2023). This adaptation has been redesigned to broaden its applicability, particularly for use with children.
+This repository contains the implementation of the SELT-R (Social Evaluation Learning Task – Revised; Lau et al., 2024), a modified version of the original SELT task introduced in Button et al. (2015). This adaptation has been redesigned to broaden its applicability, particularly for use with children.
 
 ## Overview
 The SELT-R is a behavioral task designed to assess social evaluation learning. Participants learn, through trial-based feedback, whether a persona (the “ratee”) is liked or disliked by another persona (the “rater”) using personality-related word pairings (e.g., caring vs uncaring). The task explores both self-referential and other-referential conditions.
@@ -69,6 +69,6 @@ Please go to /js/stimuli.js, and modify the `validParticipants` variable. Curren
 ## License
 This project is intended for academic and research use. Please cite the original study if used in publications:
 
-Lau, I.H.W., Norman, J., Stothard, M. et al. Jumping to attributions during social evaluation. Sci Rep 14, 15447 (2024). https://doi.org/10.1038/s41598-024-65704-y.
+Lau, I. H. W., Norman, J., Stothard, M. et al. Jumping to attributions during social evaluation. Sci Rep 14, 15447 (2024). https://doi.org/10.1038/s41598-024-65704-y.
 
 Button, K. S., Kounali, D., Stapinski, L., Rapee, R. M., Lewis, G., & Munafò, M. R. (2015). Fear of negative evaluation biases social evaluation inference: Evidence from a probabilistic learning task. PloS one, 10(4), e0119456. https://doi.org/10.1371/journal.pone.0119456.
