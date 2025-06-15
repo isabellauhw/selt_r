@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Play nice on mobile screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+  <!-- Our common libraries -->
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/bootstrap.min.js"></script>
+  <link href="libs/bootstrap.min.css" rel="stylesheet"/>
+  <script src="libs/lodash.min.js"></script>
+  <script src="libs/pavlovia-standalone.js"></script>
+  <!-- Slider libraries -->
+  <link href="libs/bootstrap-slider.min.css" rel="stylesheet"/>
+  <script src="libs/bootstrap-slider.min.js"></script>
+
+  <!-- Our code -->
+  <link href="style/main.css" rel="stylesheet"/>
+  <script src="js/utils.js"></script>
+  <script src="js/stimuli.js"></script> <!-- Contains the AVATARS variable -->
+  <script src="js/main.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://jquery-imagefit-plugin.googlecode.com/svn/trunk/jquery.imagefit-0.2.js"></script>
+  
+  <!-- Formatting -->
+<style>
+  #cover-story,
+  #full-instructions,
+  #full-instructions2,
+  #full-instructions3, 
+  #full-instructions4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  #cover-story p,
+  #full-instructions p,
+  #full-instructions2 p,
+  #full-instructions3 p,
+  #full-instructions4 p{
+    margin: 2px 0;
+    font-size: 14px;
+  }
+
+  .scale-img-2,
+  .scale-img-3,
+  .scale-img-4 {
+    max-width: 100%;
+    height: auto;
+    margin: 5px 0;
+  }
+</style>
+</head>
+
+<body>
+  <div id="gorilla">
+    <!-- Everything inside this element will be copied into Gorilla -->
+    <!-- Start copying here -->
+    <div id="start" class="instructions">
+      <h2>Evaluation Task</h2>
+      <p>
+        Please enter the participant number you have been given for this study:
+      </p>
+      <p>
+         <input id="subject-nr" name="" type="text" value=""/>
+      </p>
+      <p>
+        <button id="btn-start" class="btn btn-primary">Click to Start</button>
+      </p>
+     <div id="error-message" style="color: red; display: none;"></div>
+    </div>
+
+
+ <div id="setup" class="instructions">
+  <!-- Avatars -->
+  <p>Please select an avatar from the selection below to represent you during this task.</p>
+  <p id="avatar-select" class="form-check">
+    <!-- This gets populated by the ShowSetup() function -->
+  </p>
+  <p>
+    <button id="btn-setup" class="btn btn-primary">Click to Continue</button>
+  </p>
+</div>
+
+<div id="cover-story" class="instructions" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; padding: 0 5px;">
+      <p>
+        Imagine you are starting a new academic year in a new class. 
+        As you settle into your new classroom, you notice the diverse group 
+        of students around you. 
+      </p>
+      <p>
+        As you start to interact with your peers, you form impressions of them, 
+        whether you might get on with them, and what they will be like as classmates. 
+        Other people in the class will also be making impressions of you. Since it is a 
+        new class, you haven't met your classmates before.
+      </p>
+      <p>
+        Your task is to figure out what your classmates think of you and each other. 
+        By the end you will need to decide who you would most like to sit next 
+        to in class for the rest of the year.
+      </p>
+      <p>
+        For some of your classmates, you might get a second chance to figure out
+        what they think of you.
+        We will give you one practice trial to show you how 
+        you will figure out what they think.
+      </p>
+      <p> <button id="btn-begin1" class="btn btn-primary">Click to Begin</button>
+      </p>
+
+    </div>
+    
+  <div id="full-instructions" class="instructions" style="width: 100%; height: 100%">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 0 5px">
+    <p>
+      You'll be given a series of word pairs. In each pair, you must decide how 
+      likely it is that <span class="rater-name"></span> would use one or the 
+      other word to describe <span class="ref-name"></span>. Please indicate how 
+      likely you think this is on the scale between the two words. 
+    </p>
+    <p>
+      After you do this, <span class="rater-name"></span> will circle the word they used on this
+      occasion. Using their feedback, you should be able to work
+      out what <span class="rater-name"></span> thinks about <span class="ref-name"></span>. 
+      At the end of each round, we'll ask you how positive <span class="rater-name"></span>'s 
+      opinion is about <span class="ref-name"></span> overall. The next screen will show you more examples.
+    </p>
+    <p>
+      <img class="scale-img-1" id="scale-img-1" src=""/>
+    </p>
+    <p>
+      <button id="btn-begin2" class="btn btn-primary">Click to Continue</button>
+    </p>
+  </div>
+</div>
+
+<div id="full-instructions2" class="instructions" style="display: none; width: 100%; height: 100%; overflow-y: auto;">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 10px;">
+    <div style="margin-bottom: 5px;">
+      <p style="margin: 0;">
+        If you thought it was <b>equally likely</b> that <span class="rater-name"></span> 
+        would use either word, you should put the scale into the middle.
+      </p>
+    </div>
+    <img class="scale-img-2" id="scale-img-2" src="" style="max-width: 100%; height: auto; margin-bottom: 5px;">
+    <div style="margin-top: 5px;">
+      <p style="margin: 0;">
+        <button id="btn-begin3" class="btn btn-primary">Click to Continue</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="full-instructions3" class="instructions" style="display: none; width: 100%; height: 100%; overflow-y: auto;">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 10px;">
+    <div style="margin-top: 5px;">
+      <p style="margin: 0;">
+        If you think it’s <b>78% likely</b> that <span class="rater-name"></span> thinks you’re 
+        <b>exciting</b> (or <b>22% likely dull</b>), you should put the slider very near the ‘exciting’ end of the scale. 
+      </p>
+      <img class="scale-img-3" id="scale-img-3" src="" style="max-width: 100%; height: auto; margin-bottom: 5px;">
+    </div>
+    <div style="margin-top: 5px;">
+      <p style="margin: 0;">
+        <button id="btn-begin4" class="btn btn-primary">Click to Continue</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="full-instructions4" class="instructions" style="display: none; width: 100%; height: 100%; overflow-y: auto;">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 10px;">
+    <div style="margin-top: 5px;">
+      <p style="margin: 0;">
+        If you think it’s <b>65% likely</b> that she thinks you’re <b>dull</b> (or <b>35% likely exciting</b>), 
+        you should put the slider near the middle at the ‘dull’ side of the scale. 
+      </p>
+      <img class="scale-img-4" id="scale-img-4" src="" style="max-width: 100%; height: auto; margin-bottom: 5px;">
+    </div>
+    <div style="margin-top: 5px;">
+      <p style="margin: 0;">
+        <button id="btn-begin5" class="btn btn-primary">Click to Continue</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+    <div id="formal-experiment-start" class="instructions">
+      <p>
+        Practice trial ended! Now we will proceed to the actual experiment.
+      </p>
+      <p>
+        Different from the practice trials, you will also have to decide who you think  
+        <span class="ref-name">[Reference Name]</span> should choose to sit next to.
+      </p>
+      <p>
+        Moreover, we will include attentional check questions in the task. Please note that if you
+        got 2 or more incorrect checks, the task will end automatically.
+      </p>
+      <p> <button id="btn-formal" class="btn btn-primary">Click to Begin</button>
+      </p>
+
+    </div>
+
+    <div id="few-weeks-later" class="instructions">
+      <p>
+        A few weeks have passed.
+      </p>
+      <p>
+        Your classmates and you had more chances to interact with each other.
+        Some of your classmates with whom you have interacted before may or
+        may not have different thoughts about you or your other peers.
+        You are curious about whether they have changed their mind
+        or not <b><u>NOW</u></b>.
+      </p>
+      <p> <button id="btn-extra" class="btn btn-primary">Click to Begin</button>
+      </p>
+
+    </div>
+
+<div id="attentional_check1" class="instructions">
+  <p>
+    Please move the slider to 100.
+  </p>
+  <p>
+    <input id="slider-attentional-check1" min="8" max="40" type="text" data-slider-id='pretty-slider-attentional-check1' style="width: 70%" />
+  </p>
+  <p> <button id="btn-attentional-check1" class="btn btn-primary">Submit</button> </p>
+</div>
+
+<div id="attentional_check2" class="instructions">
+  <p>
+    Please move the slider to 0.
+  </p>
+  <p>
+    <input id="slider-attentional-check2" min="8" max="40" type="text" data-slider-id='pretty-slider-attentional-check2' style="width: 70%" />
+  </p>
+  <p> <button id="btn-attentional-check2" class="btn btn-primary">Submit</button> </p>
+</div>
+
+<div id="start-block" class="instructions" style="font-size: 14px;">
+  <h2 id="instr0" style="margin: -5px;">Practice trial<span id="practice-round"></span></h2>
+  <h2 id="instr1" style="margin: -5px;">Round <span id="block_nr">1</span></h2>
+  <p id="instr2" style="margin: -5px;">
+    <img class="rater-img" alt="" src=""/>
+    This is <span class="rater-name">XXXX</span>.
+  </p>
+  <p id="instr3" style="margin: -5px;">
+    And this is <span class="ref-name">XXX</span>.
+    <img class="ref-img" alt="" src=""/>
+  </p>
+
+<span id="instr4" style="font-size: 14px; margin: -2px;">
+    <p style="margin: -2px;">
+      This is a practice trial. <span class="rater-name">[Rater Name]</span> and 
+      <span class="ref-name">[Reference Name]</span> are new classmates of 
+      the same class. You will figure out what <span class="rater-name">[Rater Name]</span> 
+      thinks of <span class="ref-name">[Reference Name]</span>. In the end, 
+      you will also have to decide who you think  
+      <span class="ref-name">[Reference Name]</span> should choose to sit next to. 
+    </p>
+    <p id="more-instructions-self" style="margin: 3px;">
+      <button id="btn-self" class="btn btn-primary">Click to Continue</button>
+    </p>
+</span>
+
+  <span id="instr5">
+    <p>
+      <span class="rater-name">[Rater Name]</span> and 
+      <span class="ref-name">[Reference Name]</span> are classmates of 
+      the same class. You will figure out what <span class="rater-name">[Rater Name]</span> 
+      thinks of <span class="ref-name">[Reference Name]</span>, the same way as before.
+      You will also have to decide who you think  
+      <span class="ref-name">[Reference Name]</span> should choose to sit next to.
+    </p>
+    <p id="end-instructions">
+      <button id="btn-begin" class="btn btn-primary">Click to Begin</button>
+    </p>
+  </span>
+
+</div>
+
+<div id="practice" style="display: flex; flex-direction: column; align-items: center;">
+  <img class="rater-img" alt="" src=""/>
+  <div id="question-prac-div" style="margin: -8px;">
+    <p style="margin: -5px;">
+      Where would you put the slider if you think it is <b>very likely</b> that 
+      <span class="rater-name"></span> finds <span class="ref-name"></span> 
+      <span class="left-word bold"></span>?
+    </p>
+    <p style="margin: -2px;">
+      <input id="slider-prac-resp" min="15" max="25" type="text" data-slider-id='pretty-slider-prac-resp' />
+    </p>
+    <p style="margin: -2px;"><button id="btn-prac-resp" class="btn btn-primary">Submit</button></p>
+  </div>
+  <img class="ref-img" alt="" src=""/>
+  <div id="feedback-prac-div" style="margin: -6px;">
+    <p id="tick" class="outcome">Correct!</p>
+    <p id="cross" class="outcome">Wrong!</p>
+    <p id="feedback-prac-text" style="margin: -3px;"></p>
+    <p style="margin: 0px;"><button id="btn-prac" class="btn btn-primary">Next</button></p>
+  </div>
+</div>
+
+<div id="task" style="display: flex; flex-direction: column; align-items: center;">
+  <img class="rater-img" alt="" src=""/>
+  <div id="question-div" style="margin: -4px;">
+    <p style="margin: -4px;">
+      How <b><u>LIKELY</u></b> do you think it is that 
+      <span class="rater-name"></span>
+      will find
+      <span class="ref-name"></span>
+      <span class="left-word bold"></span>,
+      or
+      <span class="right-word bold"></span>?
+    </p>
+    <p style="margin: -1px;">
+      <input id="slider-resp" min="15" max="25" type="text" data-slider-id='pretty-slider-resp' />
+    </p>
+    <p style="margin: 1px;"><button id="btn-resp" class="btn btn-primary">Submit</button></p>
+  </div>
+  <img class="ref-img" alt="" src=""/>
+  <div id="feedback-div" style="margin: -3px;">
+    <p id="tick" class="outcome">Correct!</p>
+    <p id="cross" class="outcome">Wrong!</p>
+    <p id="feedback-text" style="margin: -5px;"></p>
+  </div>
+</div>
+
+<div id="evaluation" class="instructions" style="margin: -5px; display: flex; flex-direction: column; align-items: center;">
+  <img class="rater-img" alt="" src="" style="margin-bottom: 10px;"/>
+  <p style="margin: -7px;">
+    That's the end of the word pairs.
+    Overall, how often do you think that
+    <span class="rater-name"></span>
+    makes a positive judgement about
+    <span class="ref-name"></span>?
+  </p>
+  <img class="ref-img" alt="" src="" style="margin-bottom: 4px;"/>
+  <p style="margin: -1px;">
+    <input id="slider-eval" min="15" max="25" type="text" data-slider-id='pretty-slider-eval' />
+  </p>
+  <p style="margin: 2px;">
+    <button id="btn-done" class="btn btn-primary">Submit</button>
+  </p>
+</div>
+
+ <div id="selection-end-self" class="instructions">
+    <!-- Avatars -->
+    <p>
+        This is your class.
+        After knowing how your classmates feel about you <img class="ref-img" alt="" src=""/>. 
+        Who do you think you should sit next to?
+    </p>
+    <p id="avatar-select-end-self" class="form-check">
+        <!-- This gets populated by the ShowOtherAvatarSelection_self() function -->
+    </p>
+    <p>
+        <button id="btn-selection-end-self" class="btn btn-primary">Click to Continue</button>
+    </p>
+</div>
+
+<div id="selection-end-other" class="instructions">
+    <!-- Avatars -->
+    <p>
+        This is your class.
+        After knowing how your classmates feel about <span class="ref-name"></span> <img class="ref-img" alt="" src=""/>. 
+        Who do you think <span class="ref-name"></span> should sit next to?
+    </p>
+    <p id="avatar-select-end-other" class="form-check">
+        <!-- This gets populated by the ShowOtherAvatarSelection_other() function -->
+    </p>
+    <p>
+        <button id="btn-selection-end-other" class="btn btn-primary">Click to End Experiment</button>
+    </p>
+</div>
+
+<p id="end" class="instructions">
+        End of Task.<br>
+        Thank you for your participation. 
+        You may close the web page. <br>
+      </p>
+      
+<p id="fail" class="instructions">
+        End of Task.<br>
+        Sorry, you have failed two attention checks, so you will not be able to continue with this study. <br>
+        You may close the web page. <br>
+      </p>
+      <!-- Stop copying here -->
+    </div>
+  </body>
+</html>
