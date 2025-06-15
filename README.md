@@ -59,8 +59,12 @@ README.md: This file
 | `avatar_selected_self_file`      | Post-task avatar choice (self-referential condition)                        |
 | `avatar_selected_other_file`     | Post-task avatar choice (other-referential condition)                       |
 
+You can view a demo datasheet in the /data/ directory to better understand the output formatting.
 
 ⛔ Note: Block -999 (avatar selection) is excluded from analysis. During this block, all learning-related variables (e.g., rater_name, liking, response, accuracy, etc.) are intentionally left blank in the data output.
+
+## Get started with trying out the task
+Please go to /js/stimuli.js, and modify the `validParticipants` variable. Currently we set it as 'AmazingStudent', but you can revise or add more valid participant ID for your study. 
 
 ## License
 This project is intended for academic and research use. Please cite the original study if used in publications:
