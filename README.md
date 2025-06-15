@@ -8,7 +8,7 @@ The SELT-R is a behavioral task designed to assess social evaluation learning. P
 
 The SELT-R introduces 8 experimental blocks, including new “liked-repeat” conditions to mitigate positive bias ceiling effects.
 
-Block order is pseudo-randomised so that “liked-repeat” blocks follow corresponding “disliked” blocks.
+Block order is pseudo-randomised so that “liked-repeat” blocks (blocks 5 and 6) follow corresponding “disliked” (blocks 3 and 4) blocks.
 
 Participants can personalise avatars and are immersed in a cover story framed around a school environment.
 
@@ -17,9 +17,13 @@ Ratings are made on a continuous probability scale (0–100), offering more gran
 The task includes two attention checks to ensure data quality and participant engagement.
 
 ## Block Structure
-Block 0: Practice block
-Blocks 1–8: Experimental blocks with self- and other-referential conditions across liked, neutral, disliked, and liked-repeat conditions.
-Block -999: Post-task avatar selection (not analysed)
+- **Block 0**: Practice block  
+- **Blocks 1–8**: Experimental blocks with self- and other-referential conditions across:
+  - *Liked*
+  - *Neutral*
+  - *Disliked*
+  - *Liked-repeat* conditions  
+- **Block -999**: Post-task avatar selection (not analysed)
 
 If a participant fails both attention checks, the task automatically ends after Block 5, and only data up to that point will be saved.
 
