@@ -1,0 +1,155 @@
+/* static/main.css
+
+Use this file to set the default styling of the elements in our experiment.
+You can use javascript to interactively change these later.
+*/
+#gorilla {
+    /* Everything is in the body, so these rules apply to every element */
+    display: none;     /* Hide everything until we're ready to show it */
+    font-size: 14pt;
+}
+
+.instructions > * {
+    position: relative;
+}
+
+
+.instructions {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    width: 80vw;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+#task {
+    position: absolute;
+    left: 0vw;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+#practice {
+    position: absolute;
+    left: 0vw;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+
+#avatar-select > label > img {
+    width: 10vh;
+    margin: 5px;
+}
+
+/* HIDE RADIO */
+#avatar-select  [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+#avatar-select [type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+#avatar-select [type=radio]:checked + img {
+  outline: 3px solid #f00;
+}
+
+#avatar-select-end-self > label > img {
+    width: 10vh;
+    margin: 5px;
+}
+
+/* HIDE RADIO */
+#avatar-select-end-self  [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+#avatar-select-end-self [type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+#avatar-select-end-self [type=radio]:checked + img {
+  outline: 3px solid #f00;
+}
+
+#avatar-select-end-other > label > img {
+    width: 10vh;
+    margin: 5px;
+}
+
+/* HIDE RADIO */
+#avatar-select-end-other  [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+#avatar-select-end-other [type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+#avatar-select-end-other [type=radio]:checked + img {
+  outline: 3px solid #f00;
+}
+
+.rater-img, .ref-img {
+    margin: 1em;
+    height: 12vh;
+}
+.bold {font-weight: bold;}
+.hidden { opacity: 0; }
+.faded { opacity: 0.5; }
+/* #portrait { */
+/*     width: 12em; */
+/*     margin-top: 1em; */
+/* } */
+
+/* Slider stuff */
+#pretty-slider-prac-resp, #pretty-slider-resp, #pretty-slider-eval {
+    width: 25em;
+}
+.slider-track, .slider-tick {
+    background: lightgrey;
+}
+.slider-selection {
+    background: #8283FF;
+}
+.slider-handle {
+    border-bottom-color: blue;
+}
+
+#feedback-div {
+    font-size: 1.5em;
+}
+.outcome {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+#tick{ color: green; }
+#cross{ color: red; }
+
+.circled {
+    border: .2em solid black;
+    border-radius: 50%;
+}
