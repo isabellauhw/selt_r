@@ -5,7 +5,7 @@ This repository contains the implementation of the SELT-R (Social Evaluation Lea
 The task was implemented on Pavolvia (https://pavlovia.org/) and written mainly in JavaScript (with jsPsych plug-ins). The easiest way to implement it is to clone this GitHub directory to Pavolvia, but you can also use it on other platforms that support JavaScript and jsPsych.
 
 ## Overview
-The SELT-R is a behavioral task designed to assess social evaluation learning. Participants learn, through trial-based feedback, whether a persona (the “ratee”) is liked or disliked by another persona (the “rater”) using personality-related word pairings (e.g., caring vs uncaring). The task explores both self-referential and other-referential conditions.
+The SELT-R is a behavioural task designed to assess social evaluation learning. Participants learn, through trial-based feedback, whether a persona (the “ratee”) is liked or disliked by another persona (the “rater”) using personality-related word pairings (e.g., caring vs uncaring). The task explores both self-referential and other-referential conditions.
 
 ## Compared to the original SELT:
 
