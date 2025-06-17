@@ -33,8 +33,8 @@ If a participant fails both attention checks, the task automatically ends after 
 ## File Structure
 - `index.html`: Entry point of the task
 - `js/`: Core JavaScript task logic and functions
-- `stimuli/`: Avatar images and word stimuli
-- `data/`: Output files saved via Pavlovia
+- `stimuli/`: Avatar images, word stimuli, and valid participants' ID (see below)
+- `data/`: Output files saved via Pavlovia (.csv format)
 - `README.md`: This file
 
 ## Output Variables
