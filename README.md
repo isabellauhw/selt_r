@@ -1,5 +1,8 @@
 # SELT-R: Social Evaluation Learning Task – Revised
-This repository contains the implementation of the SELT-R (Social Evaluation Learning Task – Revised; Lau et al., 2024), a modified version of the original SELT task introduced in Button et al. (2015). This adaptation has been redesigned to broaden its applicability, particularly for use with children.
+This repository contains the implementation of the SELT-R (Social Evaluation Learning Task – Revised; Lau et al., 2024), a modified version of the original SELT task introduced in Button et al. (2015). This adaptation has been redesigned to broaden its applicability, particularly for use with children. 
+
+# Getting started
+The task was implemented on Pavolvia (https://pavlovia.org/) and written mainly in JavaScript (with jsPsych plug-ins). The easiest way to implement it is to clone this GitHub directory to Pavolvia, but you can also use it on other platforms that support JavaScript and jsPsych.
 
 ## Overview
 The SELT-R is a behavioral task designed to assess social evaluation learning. Participants learn, through trial-based feedback, whether a persona (the “ratee”) is liked or disliked by another persona (the “rater”) using personality-related word pairings (e.g., caring vs uncaring). The task explores both self-referential and other-referential conditions.
@@ -10,7 +13,7 @@ The SELT-R introduces 8 experimental blocks, including new “liked-repeat” co
 
 Block order is pseudo-randomised so that “liked-repeat” blocks (blocks 5 and 6) follow corresponding “disliked” (blocks 3 and 4) blocks.
 
-Participants can personalise avatars and are immersed in a cover story framed around a school environment.
+Participants can personalise their avatars and are immersed in a cover story set within a school environment.
 
 Ratings are made on a continuous probability scale (0–100), offering more granular data than binary response options.
 
@@ -68,11 +71,11 @@ You can view a demo datasheet in the `/data/` directory to better understand the
 ⛔ Note: Block -999 (avatar selection) is excluded from analysis. During this block, all learning-related variables (e.g., rater_name, liking, response, accuracy, etc.) are intentionally left blank in the data output.
 
 ## Get started with trying out the task
-Please go to `/js/stimuli.js`, and modify the `validParticipants` variable. Currently we set it as 'AmazingStudent', but you can revise or add more valid participant ID for your study. 
+Please go to `/js/stimuli.js`, and modify the `validParticipants` variable. Currently, we set it as 'AmazingStudent', but you can revise or add more valid participant IDs for your study. 
 
 ## License
-This project is intended for academic and research use. Please cite the original study if used in publications:
+This project is intended for academic and research use. Please cite the original studies if used in publications:
 
-Lau, I. H. W., Norman, J., Stothard, M. et al. Jumping to attributions during social evaluation. Sci Rep 14, 15447 (2024). https://doi.org/10.1038/s41598-024-65704-y.
+Lau, I. H. W., Norman, J., Stothard, M., Carlisi, C. O., & Moutoussis, M. (2024). Jumping to attributions during social evaluation. Sci Rep 14, 15447 (2024). https://doi.org/10.1038/s41598-024-65704-y.
 
 Button, K. S., Kounali, D., Stapinski, L., Rapee, R. M., Lewis, G., & Munafò, M. R. (2015). Fear of negative evaluation biases social evaluation inference: Evidence from a probabilistic learning task. PloS one, 10(4), e0119456. https://doi.org/10.1371/journal.pone.0119456.
