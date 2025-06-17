@@ -1,7 +1,7 @@
 # SELT-R: Social Evaluation Learning Task – Revised
 This repository contains the implementation of the SELT-R (Social Evaluation Learning Task – Revised; Lau et al., 2024), a modified version of the original SELT task introduced in Button et al. (2015). This adaptation has been redesigned to broaden its applicability, particularly for use with children. 
 
-# Getting started
+## Getting started
 The task was implemented on Pavolvia (https://pavlovia.org/) and written mainly in JavaScript (with jsPsych plug-ins). The easiest way to implement it is to clone this GitHub directory to Pavolvia, but you can also use it on other platforms that support JavaScript and jsPsych.
 
 ## Overview
